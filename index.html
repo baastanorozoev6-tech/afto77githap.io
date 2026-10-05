@@ -1,0 +1,2214 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>афто777 — Продажа автомобилей</title>
+
+  <meta
+    name="description"
+    content="афто777// — автомобили в наличии. Подбор, консультация и помощь с оформлением."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="фон.webp"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --red: #0c0b0b;
+      --red-dark: #1f1b1b;
+      --ink: #3b3636cb;
+      --steel: #59606a;
+      --line: #000000;
+      --paper: #3f353500;
+      --white: #242020c4;
+      --green: hsl(0, 28%, 92%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      width: 100%;
+      font-family: "Comfortaa", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .top-rule {
+      height: 7px;
+      background: var(--red);
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e2e2e2;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      width: min(1280px, calc(100% - 40px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: black;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      font-family: "Space Mono", monospace;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-link {
+      position: relative;
+      color: #262626;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width .2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--red);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 20px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-red {
+      color: #fff;
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .button-red:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+    }
+
+    .button-outline {
+      color: #fff;
+      background: rgba(0, 0, 0, .15);
+      border-color: rgba(255, 255, 255, .75);
+    }
+
+    .button-outline:hover {
+      color: var(--ink);
+      background: #fff;
+      border-color: #fff;
+    }
+
+    .button-dark {
+      width: 100%;
+      color: #fff;
+      background: #151515;
+      border-color: #151515;
+    }
+
+    .button-dark:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #111;
+      outline-offset: 3px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      background: #111;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(35%) contrast(1.1);
+      transform: scale(1.02);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 5, 5, .9) 0%,
+          rgba(5, 5, 5, .65) 45%,
+          rgba(5, 5, 5, .16) 100%
+        );
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: .2;
+      background-image:
+        linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: linear-gradient(90deg, black, transparent 72%);
+    }
+
+    .container {
+      width: min(1280px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 0 150px;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+    }
+
+    .kicker {
+      margin: 0 0 20px;
+      color: var(--red);
+      font-family: "Space Mono", monospace;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .red-line {
+      width: 70px;
+      height: 4px;
+      margin-bottom: 25px;
+      background: var(--red);
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(48px, 7vw, 104px);
+      font-weight: 800;
+      line-height: .9;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: 30px 0 0;
+      color: #dedede;
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .hero-strip {
+      position: absolute;
+      z-index: 5;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      color: #fff;
+      background: var(--red);
+    }
+
+    .hero-strip-inner {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 12px 0;
+    }
+
+    .hero-strip strong {
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .hero-strip span {
+      color: rgba(255,255,255,.9);
+      font-size: 14px;
+    }
+
+    .strip-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,.5);
+    }
+
+    /* =========================
+       ADVANTAGES
+    ========================= */
+
+    .advantages {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .benefit {
+      display: flex;
+      gap: 16px;
+      padding: 28px 28px;
+      border-left: 1px solid #d4d4d4;
+    }
+
+    .benefit:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .benefit-icon {
+      flex: 0 0 auto;
+      width: 25px;
+      color: var(--red);
+      font-size: 22px;
+    }
+
+    .benefit h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .benefit p {
+      margin: 7px 0 0;
+      color: #626262;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* =========================
+       CATALOG
+    ========================= */
+
+    .catalog {
+      padding: 100px 0;
+      background: var(--paper);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    .section-note {
+      max-width: 390px;
+      margin: 0;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .cars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .car-card {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #d9d9d9;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-6px);
+      border-color: #aaa;
+      box-shadow: 0 18px 35px rgba(15,15,15,.12);
+    }
+
+    .card-photo {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #e5e5e5;
+    }
+
+    .card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .car-card:hover .card-photo img {
+      transform: scale(1.055);
+    }
+
+    .car-number {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      padding: 9px 12px;
+      color: #fff;
+      background: var(--red);
+      font: 700 11px "Space Mono", monospace;
+      letter-spacing: .07em;
+    }
+
+    .car-body {
+      padding: 20px;
+    }
+
+    .car-type {
+      margin: 0 0 7px;
+      color: #707070;
+      font: 11px "Space Mono", monospace;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .car-name {
+      margin: 0;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 20px;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .spec {
+      min-height: 62px;
+      padding: 10px 12px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .spec-label {
+      color: #707070;
+      font: 10px "Space Mono", monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .spec-value {
+      margin-top: 5px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .price-label {
+      color: #707070;
+      font: 10px "Space Mono", monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      color: var(--red);
+      font-size: 27px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .request {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+      color: #fff;
+      background: #111214;
+    }
+
+    .request::before {
+      content: "AUTO";
+      position: absolute;
+      top: -70px;
+      right: -25px;
+      color: rgba(255,255,255,.035);
+      font-size: 210px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.12em;
+      pointer-events: none;
+    }
+
+    .request-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .request h2 {
+      max-width: 600px;
+      margin: 0;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    .request-description {
+      max-width: 500px;
+      margin: 25px 0 0;
+      color: #ccc;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .request-detail {
+      margin-top: 38px;
+      padding-left: 20px;
+      border-left: 4px solid var(--red);
+    }
+
+    .request-detail strong {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .request-detail p {
+      margin: 8px 0 0;
+      color: #999;
+      line-height: 1.6;
+    }
+
+    .form {
+      padding: 32px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid #44474c;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .field-group {
+      margin-bottom: 20px;
+    }
+
+    .field-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #eee;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .field {
+      width: 100%;
+      min-height: 50px;
+      padding: 13px 14px;
+      color: #fff;
+      background: rgba(255,255,255,.04);
+      border: 1px solid #55585d;
+      border-radius: 0;
+      outline: none;
+      transition:
+        border-color .2s ease,
+        background .2s ease;
+    }
+
+    .field::placeholder {
+      color: #999;
+    }
+
+    .field:focus {
+      background: rgba(255,255,255,.08);
+      border-color: #fff;
+    }
+
+    textarea.field {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-bottom {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .form-note {
+      color: #999;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .status {
+      min-height: 24px;
+      margin-top: 18px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .status.success {
+      color: var(--green);
+    }
+
+    .status.error {
+      color: #ff8088;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      background: #fff;
+    }
+
+    .footer-inner {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .footer-brand {
+      font-family: "Space Mono", monospace;
+      font-weight: 700;
+      letter-spacing: -.08em;
+    }
+
+    .socials {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: #444;
+      border: 1px solid #d2d2d2;
+      font-size: 15px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .social:hover {
+      color: #fff;
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .footer-note {
+      margin: 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal .7s ease-out forwards;
+    }
+
+    .delay-1 {
+      animation-delay: .12s;
+    }
+
+    .delay-2 {
+      animation-delay: .22s;
+    }
+
+    .delay-3 {
+      animation-delay: .34s;
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .car-card.animate {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    .car-card.visible {
+      animation: cardReveal .6s ease-out forwards;
+    }
+
+    @keyframes cardReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    .mobile-menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      color: #111;
+      background: #fff;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 15px 20px 20px;
+      background: #fff;
+      border-top: 1px solid #ddd;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 13px 0;
+      color: #222;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid #eee;
+    }
+
+    @media (max-width: 1000px) {
+      .cars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .request-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        width: min(100% - 30px, 1280px);
+      }
+
+      .nav-links,
+      .nav > .button-red {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .mobile-menu.open {
+        display: block;
+      }
+
+      .container {
+        width: min(100% - 30px, 1280px);
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero-content {
+        padding: 100px 0 140px;
+      }
+
+      .advantages-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit,
+      .benefit:first-child {
+        padding: 22px 0;
+        border-left: 0;
+        border-top: 1px solid #d4d4d4;
+      }
+
+      .benefit:first-child {
+        border-top: 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section-note {
+        text-align: left;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-group.full {
+        grid-column: auto;
+      }
+
+      .footer-inner {
+        padding: 25px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-buttons .button {
+        width: 100%;
+      }
+
+      .cars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .catalog,
+      .request {
+        padding: 70px 0;
+      }
+
+      .form {
+        padding: 20px;
+      }
+
+      .form-bottom {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .form-bottom .button {
+        width: 100%;
+      }
+
+      .hero-strip-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .strip-divider {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-rule"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Основная навигация">
+
+      <a href="#top" class="brand" aria-label="AUTO BLACK — на главную">
+        <span class="brand-icon"><img src="логотип1.webp" alt="Логотип" class=w-full h-full object-cover></span>
+        <span class="brand-mark">афто777</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#catalog" class="nav-link">Каталог</a>
+        <a href="#advantages" class="nav-link">Преимущества</a>
+        <a href="#request" class="nav-link">Заявка</a>
+      </div>
+
+      
+      
+      <a href="#request" class="button button-red">
+        Оставить заявку ↗
+      </a>
+
+      <button
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        type="button"
+        aria-label="Открыть меню"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#catalog">Каталог</a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#request">Заявка</a>
+    </div>
+  </header>
+
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <img
+        class="hero-image"
+        src="фон1.jpg"
+        alt="Автомобиль"
+      >
+
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+
+      <div class="container hero-content">
+        <div class="hero-copy">
+
+          <p class="kicker reveal">
+            АВТОМОБИЛИ • В НАЛИЧИИ • манас
+          </p>
+
+          <div class="red-line reveal delay-1"></div>
+
+          <h1 class="reveal delay-1">
+            Автомобили<br>
+            без лишних<br>
+            слов
+          </h1>
+
+          <p class="hero-description reveal delay-2">
+            Подбираем автомобили под ваши задачи.
+            Прозрачная информация о состоянии,
+            комплектации и истории каждого автомобиля.
+          </p>
+
+          <div class="hero-buttons reveal delay-3">
+
+            <a href="#catalog" class="button button-red">
+              Смотреть каталог ↓
+            </a>
+
+            <a href="#request" class="button button-outline">
+              Подобрать автомобиль
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-strip">
+        <div class="container hero-strip-inner">
+          <strong>9 автомобилей в каталоге</strong>
+          <span class="strip-divider"></span>
+          <span>Поможем выбрать автомобиль и оформить заявку</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ADVANTAGES -->
+    <section class="advantages" id="advantages">
+
+      <div class="container advantages-grid">
+
+        <article class="benefit">
+          <div class="benefit-icon">✓</div>
+
+          <div>
+            <h2>Проверенные автомобили</h2>
+
+            <p>
+              Перед продажей автомобили проходят
+              проверку основных узлов и документов.
+            </p>
+          </div>
+        </article>
+
+        <article class="benefit">
+          <div class="benefit-icon">◆</div>
+
+          <div>
+            <h2>Честная информация</h2>
+
+            <p>
+              Показываем характеристики, пробег,
+              год выпуска и комплектацию.
+            </p>
+          </div>
+        </article>
+
+        <article class="benefit">
+          <div class="benefit-icon">▣</div>
+
+          <div>
+            <h2>Помощь с оформлением</h2>
+
+            <p>
+              Ответим на вопросы и поможем пройти
+              путь от выбора автомобиля до покупки.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATALOG -->
+    <section class="catalog" id="catalog">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="kicker">01 / КАТАЛОГ</p>
+
+            <h2>Автомобили</h2>
+          </div>
+
+          <p class="section-note">
+            Выберите автомобиль из каталога или
+            оставьте заявку — менеджер свяжется с вами.
+          </p>
+
+        </div>
+
+
+        <div class="cars-grid">
+
+          <!-- CAR 1 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1000&q=85"
+                alt="Toyota Camry 70"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">01 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Седан</p>
+
+              <h3 class="car-name">Toyota Camry 70</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2021</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">42 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Автомат</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">280 500сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Toyota Camry 50"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+          <!-- CAR 1 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="камри1.webp"
+                alt="Toyota Camry 50"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">02 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Седан</p>
+
+              <h3 class="car-name">Toyota Camry 50</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2017</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">47 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Автомат</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">550 000сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Toyota Camry 50"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- CAR 2 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="bmw.webp"
+                alt="BMW X5 "
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">03 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">SUV</p>
+
+              <h3 class="car-name">BMW X5 </h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2022</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">31 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Автомат</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">670 000сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="BMW X5 "
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+           <!-- CAR 2 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="м4.webp"
+                alt="BMW м4 "
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">04 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">SUV</p>
+
+              <h3 class="car-name">BMW м4 </h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2017</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">100 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Автомат</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">500 000сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="BMW m4"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- CAR 3 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="е 200.webp"
+                alt="Mercedes-Benz E200"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">05 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Седан</p>
+
+              <h3 class="car-name">Mercedes-Benz E200</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2021</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">38 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Автомат</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">495 500сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Mercedes-Benz E200"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+           <!-- CAR 3 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="кабан.webp"
+                alt="Mercedes-Benz 140"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">06 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Седан</p>
+
+              <h3 class="car-name">Mercedes-Benz 140</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">1996</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">38 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Механика</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">495 500сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Mercedes-Benz 140"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- CAR 4 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="хильюкс.webp"
+                alt="Toyota Hilux Invincible"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">07 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Пикап</p>
+
+              <h3 class="car-name">Toyota Hilux Invincible</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2022</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">46 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Автомат</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Дизель</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">500000сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Toyota Hilux Invincible"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- CAR 5 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="гольф 1.webp"
+                alt="Volkswagen Golf "
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">08 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Хэтчбек</p>
+
+              <h3 class="car-name">Volkswagen Golf 3</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2021</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">76 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">DSG</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">312 900сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Volkswagen Golf 3"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+<!-- CAR 5 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="гольф 3.webp"
+                alt="Volkswagen Golf 3"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">09 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Хэтчбек</p>
+
+              <h3 class="car-name">Volkswagen Golf 3</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2022</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">29 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">DSG</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Бензин</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+                <strong class="price">310 900сом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Volkswagen Golf 3"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- CAR 6 -->
+          <article class="car-card animate">
+
+            <div class="card-photo">
+              <img
+                src="краун.webp"
+                alt="Toyota Crown Athlete"
+                loading="lazy"
+              >
+            </div>
+
+            <span class="car-number">10 / 10</span>
+
+            <div class="car-body">
+
+              <p class="car-type">Седан</p>
+
+              <h3 class="car-name">Toyota Crown Athlete</h3>
+
+              <div class="spec-grid">
+
+                <div class="spec">
+                  <div class="spec-label">Год</div>
+                  <div class="spec-value">2020</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Пробег</div>
+                  <div class="spec-value">80 000 км</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">КПП</div>
+                  <div class="spec-value">Автомат</div>
+                </div>
+
+                <div class="spec">
+                  <div class="spec-label">Топливо</div>
+                  <div class="spec-value">Гибрид</div>
+                </div>
+
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Цена</span>
+        <strong class="price">670 500cом</strong>
+              </div>
+
+              <button
+                class="button button-dark select-car"
+                type="button"
+                data-car="Toyota Crown Athlete"
+              >
+                Выбрать автомобиль →
+              </button>
+
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- REQUEST -->
+    <section class="request" id="request">
+
+      <div class="container request-grid">
+
+        <div>
+
+          <p class="kicker">02 / ЗАЯВКА</p>
+
+          <h2>
+            Нашли свой<br>
+            автомобиль?
+          </h2>
+
+          <p class="request-description">
+            Оставьте контакты и модель автомобиля.
+            Мы свяжемся с вами и расскажем о наличии,
+            комплектации и условиях покупки.
+          </p>
+
+          <div class="request-detail">
+            <strong>Нужен другой автомобиль?</strong>
+
+            <p>
+              Напишите, какой автомобиль вы ищете.
+              Постараемся найти подходящий вариант.
+            </p>
+          </div>
+
+        </div>
+
+
+        <form class="form" id="lead-form" novalidate>
+
+          <div class="form-grid">
+
+            <div class="field-group">
+
+              <label class="field-label" for="name">
+                Ваше имя *
+              </label>
+
+              <input
+                class="field"
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Введите имя"
+                required
+              >
+
+            </div>
+
+
+            <div class="field-group">
+
+              <label class="field-label" for="phone">
+                Телефон *
+              </label>
+
+              <input
+                class="field"
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="+996 ___ ___ ___"
+                required
+              >
+
+            </div>
+
+
+            <div class="field-group full">
+
+              <label class="field-label" for="car">
+                Автомобиль *
+              </label>
+
+              <input
+                class="field"
+                id="car"
+                name="car"
+                type="text"
+                placeholder="Например, Toyota Camry 70"
+                required
+              >
+
+            </div>
+
+
+            <div class="field-group full">
+
+              <label class="field-label" for="message">
+                Комментарий
+              </label>
+
+              <textarea
+                class="field"
+                id="message"
+                name="message"
+                placeholder="Ваш вопрос или пожелания..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-bottom">
+
+            <button
+              class="button button-red"
+              id="submit-button"
+              type="submit"
+            >
+              Отправить заявку →
+            </button>
+
+            <span class="form-note">
+              Мы свяжемся с вами в кратчайшие время.
+            </span>
+
+          </div>
+
+          <div
+            class="status"
+            id="form-status"
+            aria-live="polite"
+          ></div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        афто777
+      </div>
+
+      <div class="socials">
+
+       <a href="https://www.instagram.com/orozoev_kg?stkn=MTVrdXJ6ZjJ3ODZuOA=="
+   target="_blank"
+   rel="noopener noreferrer"
+   class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-[white] hover:text-white">
+    <img
+        src="instagram.png"
+        alt="WhatsApp"
+        class="w-6 h-6">
+        </a>
+        
+    <a href="https://wa.me/996772155066"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-white">
+
+    <img
+        src="whats.png"
+        alt="WhatsApp"
+        class="w-6 h-6">
+
+</a>
+
+       
+    <a href="https://t.me/heujle"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-white">
+    <img
+        src="telegram.png"
+        alt="Telegram"
+        class="w-6 h-6">
+</a>
+
+      </div>
+
+      <p class="footer-note">
+        © 2026 афто777. Продажа автомобилей.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    document
+      .querySelectorAll("#mobile-menu a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.textContent = "☰";
+        });
+
+      });
+
+
+    /* =========================
+       SELECT CAR
+    ========================= */
+
+    const carInput = document.getElementById("car");
+
+    document
+      .querySelectorAll(".select-car")
+      .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          carInput.value = button.dataset.car;
+
+          document
+            .getElementById("request")
+            .scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          setTimeout(() => {
+            carInput.focus();
+          }, 600);
+
+        });
+
+      });
+
+
+    /* =========================
+       FORM
+    ========================= */
+
+    const form = document.getElementById("lead-form");
+    const status = document.getElementById("form-status");
+    const submitButton = document.getElementById("submit-button");
+
+    form.addEventListener("submit", event => {
+
+      event.preventDefault();
+
+      const name = document
+        .getElementById("name")
+        .value
+        .trim();
+
+      const phone = document
+        .getElementById("phone")
+        .value
+        .trim();
+
+      const car = document
+        .getElementById("car")
+        .value
+        .trim();
+
+      const message = document
+        .getElementById("message")
+        .value
+        .trim();
+
+
+      status.className = "status";
+
+
+      if (!name || !phone || !car) {
+
+        status.textContent =
+          "Заполните имя, телефон и автомобиль.";
+
+        status.classList.add("error");
+
+        return;
+      }
+
+
+      if (phone.length < 7) {
+
+        status.textContent =
+          "Проверьте номер телефона.";
+
+        status.classList.add("error");
+
+        return;
+      }
+
+
+      submitButton.disabled = true;
+
+      submitButton.style.opacity = ".65";
+
+      status.textContent =
+        "Заявка отправляется…";
+
+
+      /*
+       * Здесь позже можно подключить настоящий API.
+       *
+       * Например:
+       *
+       * fetch("/api/leads", {
+       *   method: "POST",
+       *   headers: {
+       *     "Content-Type": "application/json"
+       *   },
+       *   body: JSON.stringify({
+       *     name,
+       *     phone,
+       *     car,
+       *     message
+       *   })
+       * });
+       *
+       * Сейчас имитируем отправку.
+       */
+
+      setTimeout(() => {
+
+        console.log("Новая заявка:", {
+          name,
+          phone,
+          car,
+          message,
+          created_at: new Date().toISOString()
+        });
+
+        form.reset();
+
+        status.textContent =
+          "Заявка отправлена. Менеджер свяжется с вами.";
+
+        status.classList.add("success");
+
+        submitButton.disabled = false;
+
+        submitButton.style.opacity = "1";
+
+      }, 900);
+
+    });
+
+
+    /* =========================
+       CARD ANIMATION
+    ========================= */
+
+    const cards =
+      document.querySelectorAll(".car-card");
+
+    if ("IntersectionObserver" in window) {
+
+      const observer =
+        new IntersectionObserver(
+          entries => {
+
+            entries.forEach(entry => {
+
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(entry.target);
+
+            });
+
+          },
+          {
+            threshold: .12
+          }
+        );
+
+      cards.forEach(card => {
+        observer.observe(card);
+      });
+
+    } else {
+
+      cards.forEach(card => {
+        card.classList.add("visible");
+      });
+
+    }
+  </script>
+
+</body>
+</html>
+```
